@@ -1,0 +1,42 @@
+#!/usr/bin/perl -w
+use strict;
+use DBI;
+
+use lib qw(../blib/lib ./blib/lib);
+use Algorithm::MarkovChain::DBI;
+
+
+=begin create_script
+
+create table brain (
+  sequence VARCHAR(255),
+  symbol   VARCHAR(255),
+  count    INTEGER )
+
+=cut
+
+#my $dbh = DBI::->connect('dbi:Pg:dbname=dada2', 'richardc', undef)
+my $dbh = DBI::->connect('dbi:mysql:dada2', 'root', undef)
+  or die "can't connect";
+my $mc = Algorithm::MarkovChain::DBI->new(dbh => $dbh,
+                                          table => 'brain',
+					  play_unfair => 1);
+
+my $infile = shift;
+if ($infile) {
+    $| = 1;
+    print "seeding from $infile\n";
+
+    open IN, $infile;
+    while (<IN>) {
+        $mc->seed(symbols => [m/(\S+)/g],
+                  longest => 4);
+        print "\r$.        ";
+    }
+    print "\nseeded\n";
+}
+
+
+while (<>) {
+    print join(' ', $mc->spew(length => 30)),"\n";
+}

@@ -1,0 +1,9 @@
+MANIFEST
+Changes
+Makefile.PL
+MarkovChain.pm
+Base.pm
+t/Algorithm-MarkovChain.t
+demos/textfile
+demos/empty
+demos/dada
