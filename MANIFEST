@@ -1,6 +1,7 @@
 MANIFEST
 Changes
 README
+META.yml
 Build.PL
 Makefile.PL
 lib/Algorithm/MarkovChain.pm

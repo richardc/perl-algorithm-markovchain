@@ -1,6 +1,9 @@
 \.cvsignore
+\.svn/
+^Build$
 ^blib
 ~$
+_build/
 MANIFEST.SKIP
 Makefile
 pm_to_blib
