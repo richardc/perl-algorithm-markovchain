@@ -5,7 +5,7 @@ use Test::More tests => 15;
 # tests - avoids syncing pain
 
 my $class = $0;
-$class =~ s{ ^t/  }{}x;
+$class =~ s{ ^t[\\/] }{}x;
 $class =~ s{ \.t$ }{}x;
 $class =~ s{ - }{::}gx;
 
