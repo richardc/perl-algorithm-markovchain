@@ -1,4 +1,6 @@
-Revision history for Algorithm::MarkovChain.
+0.06	Sunday 9th March, 2004
+	Fix for rt.cpan.org #6259
+	Converted to Module::Build
 
 0.03  Tue Oct 31 16:22:56 2000
 	- change in spew behavior, prevents infinite loops in the case
