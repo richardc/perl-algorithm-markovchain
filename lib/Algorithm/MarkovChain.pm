@@ -4,7 +4,7 @@ use warnings;
 use Carp;
 
 require v5.6;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use base 'Algorithm::MarkovChain::Base';
 use fields qw( chains totals );
